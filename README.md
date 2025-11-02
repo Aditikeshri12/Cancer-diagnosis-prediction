@@ -1,4 +1,4 @@
-# 🧠 CA-3 Project: Predictive Modeling on Breast Cancer Dataset  
+# 🧠 Predictive Modeling on Breast Cancer Dataset  
 
 ## 📌 Overview  
 This project focuses on building and comparing multiple **predictive machine learning models** to classify breast cancer as **malignant (1)** or **benign (0)** using the **Wisconsin Breast Cancer Dataset** (`wisc_bc_data.csv`).  
@@ -8,7 +8,7 @@ The workflow includes **data preprocessing**, **model training**, **evaluation**
 ---
 
 ## 📂 Files in Repository  
-- `CA3_Project.R` → R script with full implementation of predictive modeling, evaluation, and visualization.  
+- `Predictive_Project.R` → R script with full implementation of predictive modeling, evaluation, and visualization.  
 - `wisc_bc_data.csv` → Dataset used for model training and testing.  
 - `README.md` → Project documentation (this file).  
 
@@ -108,7 +108,7 @@ This enables easy comparison and selection of the most accurate prediction model
 ---
 
 ## 🚀 How to Run  
-1. Open `CA3_Project.R` in **RStudio**.  
+1. Open `Predictive_Project.R` in **RStudio**.  
 2. Run the script step-by-step (Ctrl + Enter).  
 3. Upload `wisc_bc_data.csv` when prompted.  
 4. Check console and plot window for model outputs and comparison charts.  
