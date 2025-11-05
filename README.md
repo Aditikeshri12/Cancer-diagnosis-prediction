@@ -5,24 +5,28 @@ This project focuses on building and comparing multiple **predictive machine lea
 
 The workflow includes **data preprocessing**, **model training**, **evaluation**, and **visualization** to identify the best-performing predictive model.  
 
+Both **R** and **Python** implementations are included in this repository.
+
 ---
 
 ## 📂 Files in Repository  
-- `Predictive_Project.R` → R script with full implementation of predictive modeling, evaluation, and visualization.  
-- `wisc_bc_data.csv` → Dataset used for model training and testing.  
-- `README.md` → Project documentation (this file).  
+- `Predictive_Project.R` → R script for predictive modeling  
+- `Predictive_Project.py` → Python script for predictive modeling  
+- `wisc_bc_data.csv` → Dataset  
+- `README.md` → Project documentation  
 
 ---
 
 ## ⚙️ Installation and Setup  
 
-### 1️⃣ Install Required Libraries  
-Run the following command to install necessary packages:  
+### ✅ R Setup  
+
+#### Install Required Libraries  
 ```R
 install.packages(c("e1071", "class", "rpart", "ggplot2", "caTools", "caret", "dplyr", "tidyr"))
 ```
 
-### 2️⃣ Load the Libraries  
+#### Load Libraries  
 ```R
 library(caret)
 library(class)
@@ -33,92 +37,94 @@ library(dplyr)
 library(tidyr)
 ```
 
-### 3️⃣ Load the Dataset  
-Select the dataset when prompted:  
-```R
-data <- read.csv(file.choose())
+### ✅ Python Setup  
+
+#### Install Required Python Packages  
+```bash
+pip install numpy pandas scikit-learn matplotlib seaborn
 ```
-Or load directly if in the working directory:  
+
+#### Import Libraries in Python Script  
+```python
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.naive_bayes import GaussianNB
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.cluster import KMeans
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+import matplotlib.pyplot as plt
+import seaborn as sns
+```
+
+---
+
+## 📂 Dataset Loading  
+
+### R  
 ```R
 data <- read.csv("wisc_bc_data.csv")
+```
+
+### Python  
+```python
+data = pd.read_csv("wisc_bc_data.csv")
 ```
 
 ---
 
 ## 🔄 Data Preprocessing  
-- Converted **diagnosis (M/B)** to binary format:  
+- Convert diagnosis column:
   - `M` → `1` (Malignant)  
   - `B` → `0` (Benign)  
-- Removed irrelevant columns (`id`).  
-- Split dataset into **70% training** and **30% testing**.  
-- Standardized features using `caret::preProcess` for model consistency.  
+- Remove non-essential columns (like `id`)  
+- Train-test split (70% / 30%)  
+- Standardize features  
 
 ---
 
-## 🤖 Models Used for Prediction  
-| Model | Description |
-|--------|--------------|
-| **K-Nearest Neighbors (KNN)** | Distance-based algorithm; works well with standardized data. |
-| **Naive Bayes** | Probabilistic model based on Bayes’ theorem; assumes feature independence. |
-| **Decision Tree** | Handles non-linear relationships effectively but may overfit. |
-| **Logistic Regression** | Suitable for binary prediction with linear boundaries. |
-| **K-Means Clustering** | Unsupervised model used for comparative purposes. |
+## 🤖 Models Used  
+| Model | Purpose |
+|-------|--------|
+| KNN | Distance-based classification |
+| Naive Bayes | Probabilistic classifier |
+| Decision Tree | Tree-based classification |
+| Logistic Regression | Binary predictive model |
+| K-Means | Unsupervised model used for comparison | 
 
 ---
 
 ## 📊 Evaluation Metrics  
-Each predictive model is evaluated using:  
-- **Accuracy**  
-- **Precision**  
-- **Recall**  
-- **F1-Score**  
-- **Error Rate**  
+- Accuracy  
+- Precision  
+- Recall  
+- F1 Score  
+- Error Rate  
 
-Custom metric calculation function ensures consistency across models.  
-
----
-
-## 🎨 Visualization  
-Performance comparison is shown using bar plots generated via `ggplot2`:  
-
-```R
-ggplot(results_df, aes(x = Metric, y = Value, fill = Model)) +
-  geom_bar(stat = "identity", position = position_dodge()) +
-  theme_minimal() +
-  ggtitle("Predictive Model Comparison Across Evaluation Metrics") +
-  ylab("Metric Value") +
-  xlab("Evaluation Metrics") +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
-```
-
----
-
-## 🧾 Results Summary  
-All predictive models’ performance metrics are combined into a data frame for visualization.  
-This enables easy comparison and selection of the most accurate prediction model for breast cancer diagnosis.  
-
----
-
-## 💡 Key Insights  
-- **KNN** and **Logistic Regression** perform well on clean, standardized data.  
-- **Decision Tree** captures non-linearity but may require pruning.  
-- **Naive Bayes** performs well with independent features.  
-- **K-Means** serves as an exploratory reference model.  
+Visualization done using **ggplot2** (R) and **matplotlib / seaborn** (Python).
 
 ---
 
 ## 🚀 How to Run  
-1. Open `Predictive_Project.R` in **RStudio**.  
-2. Run the script step-by-step (Ctrl + Enter).  
-3. Upload `wisc_bc_data.csv` when prompted.  
-4. Check console and plot window for model outputs and comparison charts.  
+
+### R  
+1. Open `Predictive_Project.R`
+2. Run line by line in RStudio  
+
+### Python  
+```bash
+python Predictive_Project.py
+```
 
 ---
 
 ## 🧩 Future Enhancements  
-- Add **Support Vector Machine (SVM)** and **Random Forest** for improved predictive power.  
-- Implement **cross-validation** to prevent overfitting.  
-- Include **ROC Curve** and **AUC** analysis for better evaluation.  
+- Add SVM & Random Forest  
+- Use Cross-validation  
+- Add ROC & AUC metrics  
 
 ---
 
@@ -129,5 +135,5 @@ B.Tech (CSE) — Lovely Professional University
 
 ---
 
-## 🏷️ Keywords  
-`Predictive Modeling` • `Machine Learning` • `Breast Cancer` • `Classification` • `R Programming` • `Data Science`
+## 🏷️ Tags  
+`Machine Learning` • `Predictive Analytics` • `Breast Cancer Dataset` • `Python ML` • `R ML` • `Healthcare AI`
